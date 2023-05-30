@@ -1,0 +1,6 @@
+library(data.table)
+setwd("E:/VINZ/DATA ANALYST/COURSERA/Capstone and Case Study/Rider Trip Data")
+files <- list.files(pattern = ".csv")
+temp <- lapply(files, fread, sep=",")
+data <- rbindlist( temp, fill = TRUE)
+write.csv(data, file = "Riders_Analysis.csv", row.names = FALSE)
